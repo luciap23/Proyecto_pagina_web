@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Metadatos del autor-->
+    <meta name="author" content="Javier">
+    <meta name="description" content="Página sobre el videojuego Doom.">
+    <meta name="keywords" content="Doom, Historia de doom">
+    <!--Metadatos del juego de caracteres y vista-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------------------------------------------------------->
+    <title>Doom</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/webp" href="../images/doom-favicon.webp">
+
+</head>
+<body class="doom-page">
+    <!-- Imágenes en los laterales -->
+    <div class="doom-slayer">
+        <img src="../images/DoomSlayer.png" alt="Doom Slayer">
+    </div>
+    <div class="cyber-demon">
+        <img src="../images/CyberDemon.png" alt="Cyber Demon">
+    </div>
+    <!-- Encabezado -->
+    <header class="header">
+        <img src="../images/DOOM_TITLE.png" alt="Doom Logo" class="logo">
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html"><span>Inicio</span></a></li>
+                <li><a href="Doom.html" class=".active"><span>Doom</span></a></li>
+                <li><a href="Wolf3D.html"><span>Wolfenstein3D</span></a></li>
+                <li><a href="Alice.html"><span>Alice Madness</span></a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Runas flotantes -->
+        <div class="runes left">
+            <img src="../images/Runas1.png" alt="Rune 1" class="rune">
+            <img src="../images/Runas2.png" alt="Rune 2" class="rune">
+            <img src="../images/Runas3.png" alt="Rune 3" class="rune">
+            <img src="../images/Runas4.png" alt="Rune 4" class="rune">
+        </div>
+        <div class="runes right">
+            <img src="../images/Runas1.png" alt="Rune 1" class="rune">
+            <img src="../images/Runas2.png" alt="Rune 2" class="rune">
+            <img src="../images/Runas3.png" alt="Rune 3" class="rune">
+            <img src="../images/Runas4.png" alt="Rune 4" class="rune">
+        </div>
+        <!-- Historia de los juegos -->
+        <section class="game-info">
+            <h2 class="BodyDoom">Historia de los Juegos</h2>
+            <div class="button-container">
+                <button class="neon-button" data-game="doom1">Doom (1993)</button>
+                <button class="neon-button" data-game="doom2">Doom II</button>
+                <button class="neon-button" data-game="doom3">Doom 3</button>
+                <button class="neon-button" data-game="doom2016">Doom (2016)</button>
+                <button class="neon-button" data-game="doom-eternal">Doom Eternal</button>
+                <button class="neon-button" data-game="doom-dark-ages">Doom: The Dark Ages</button>
+            </div>
+            <div class="game-stories SubDoom">
+                <div id="doom1" class="story hidden">
+                    <h3>Doom (1993)</h3>
+                    <p>El juego original, lanzado el 10 de diciembre de 1993, sigue a un marine espacial conocido como
+                        "Doomguy" que lucha contra hordas de demonios en una base de Marte tras un experimento fallido
+                        con portales infernales.</p>
+                </div>
+                <div id="doom2" class="story hidden">
+                    <h3>Doom II: Hell on Earth</h3>
+                    <p>Lanzado el 30 de septiembre de 1994, Doom II lleva la batalla a la Tierra, tras los eventos ocurridos
+                        en Marte, Doomguy vuelve a su planeta para continuar con la matanza demoníaca.
+                    </p>
+                </div>
+                <div id="doom3" class="story hidden">
+                    <h3>Doom 3</h3>
+                    <p>Publicado el 3 de agosto de 2004, este reboot trató de ofrecer una experiencia más oscura y enfocada en
+                        el terror de los hechos que acontencen en el primer juego.
+                    </p>
+                </div>
+                <div id="doom2016" class="story hidden">
+                    <h3>Doom (2016)</h3>
+                    <p>Lanzado el 13 de mayo de 2016, este ha sido el reinicio moderno y definitivo, el cual trae 
+                        de vuelta la acción frenética. El Doom Slayer despierta para detener una invasión demoníaca 
+                        causada por experimentos con energía.
+                        infernal.</p>
+                </div>
+                <div id="doom-eternal" class="story hidden">
+                    <h3>Doom Eternal</h3>
+                    <p>Publicado el 20 de marzo de 2020, Doom Eternal expande la historia del Doom Slayer, quien regresa
+                        a una Tierra devastada para enfrentarse a los ejércitos del Infierno y sus líderes celestiales.
+                    </p>
+                </div>
+                <div id="doom-dark-ages" class="story hidden">
+                    <h3>Doom: The Dark Ages</h3>
+                    <p>Publicado el 13 de Mayo de 2025 como una precuela, este juego explora el épico origen de la furia 
+                        del Doom Slayer en un mundo medieval lleno de demonios y tecnología primitiva.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Juego -->
+        <section class="play-area">
+            <h2 class="BodyDoom">Juega al Doom Original</h2>
+            <div class="SubDoom">
+                <p>Aquí podrás disfrutar del Doom de 1993 directamente en tu navegador.</p><br>
+                <p style="text-decoration: underline;">Controles</p>
+                <p>Mover Pj: W,A,S,D</p>
+                <p>Controlar Cámara: ↑, →,↓, ← </p>
+                <p>Disparar: Q</p>
+                <p>Interactuar: E</p>
+                <p>Cambiar arma: 1,2,3,4,5,6,7,8,9</p>
+                <p>Pause/Atrás: ESC</p>
+            </div>
+        </section>
+        <section class="play-area">
+            <div class="neon-frame">
+                <iframe src="https://azazeln28.com/games/doom/" frameborder="0" allowfullscreen class="game-iframe"></iframe>
+            </div>
+        </section>
+        <!-- Reproductor de música -->
+        <section class="music-player">
+            <div class="player-background">
+                <div class="player-decor">
+                    <img src="../images/DoomGuy.png" alt="Doom Slayer Icon" class="slayer-icon">
+                </div>
+                <h3>Doom Slayer Soundtrack</h3>
+                <audio id="doom-audio" src="../sounds/RapDoom.MP3"></audio>
+                <div class="player-controls">
+                    <button id="rewind" class="control-button">◀ 10s</button>
+                    <button id="play-pause" class="control-button">▶</button>
+                    <button id="forward" class="control-button">10s ▶</button>
+                </div>
+                <div class="progress-container">
+                    <span id="current-time">0:00</span>
+                    <input type="range" id="progress-bar" value="0" min="0" max="100">
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+        </section>
+        <!-- Galería de armas -->
+        <section class="weapon-gallery">
+            <h2>Galería de Armas del Doom Slayer</h2>
+            <dl class="weapon-list">
+                <dt>
+                    <img src="../images/Supershotgun.jpg" alt="Super Shotgun">
+                    <span>Super Shotgun</span>
+                </dt>
+                <dd>Un arma devastadora que dispara dos cartuchos a la vez, ideal para masacres demoníacas a corta distancia.</dd>
+                <dt>
+                    <img src="../images/bfg9000.jpg" alt="BFG 9000">
+                    <span>BFG 9000</span>
+                </dt>
+                <dd>El cañón definitivo, lanza un proyectil masivo de energía verde que aniquila todo en su radio.</dd>
+                <dt>
+                    <img src="../images/Chainsaw.jpg" alt="Chainsaw">
+                    <span>Chainsaw</span>
+                </dt>
+                <dd>Una motosierra infernal para desmembrar enemigos de cerca, perfecta para obtener munición adicional.</dd>
+                <dt>
+                    <img src="../images/Lanzamisiles.jpg" alt="Rocket Launcher">
+                    <span>Rocket Launcher</span>
+                </dt>
+                <dd>Lanza cohetes explosivos, ideal para limpiar áreas infestadas de demonios.</dd>
+                <dt>
+                    <img src="../images/plasmaRifle.jpeg" alt="Plasma Rifle">
+                    <span>Plasma Rifle</span>
+                </dt>
+                <dd>Dispara ráfagas de energía verde, perfecta para enfrentamientos prolongados contra enemigos resistentes.</dd>
+            </dl>
+        </section>
+        <!-- Galería de enemigos -->
+        <section class="enemy-gallery">
+            <h2>Galería de Enemigos</h2>
+            <div class="enemy-grid">
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Cacodemonio.jpg" alt="Cacodemon">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Cacodemon</h3>
+                        <p>Un demonio flotante con un solo ojo y una boca gigantesca. Escupe bolas de energía que queman todo a su paso.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Imp_29.jpg" alt="Imp">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Imp</h3>
+                        <p>El enemigo más común en el Infierno. Lanza bolas de fuego y ataca con garras afiladas.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/baron_of_hell.jpg" alt="Baron of Hell">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Baron of Hell</h3>
+                        <p>Un demonio gigantesco con cuernos y fuerza brutal. Sus ataques de energía verde son letales.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Arachnotron.jpg" alt="Arachnotron">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Arachnotron</h3>
+                        <p>Una araña mecánica con un cerebro demoníaco, equipada con una ametralladora que dispara sin piedad. Su velocidad y precisión la convierten en una amenaza letal.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Mancubus.jpg" alt="Mancubus">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Mancubus</h3>
+                        <p>Un gigante obeso con cañones de fuego en ambos brazos. Dispara ráfagas de bolas de fuego que arrasan todo a su paso, mientras su resistencia lo hace difícil de derribar.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Pinky.jpg" alt="Pinky">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Pinky</h3>
+                        <p>Un demonio rápido y feroz que carga a toda velocidad con sus cuernos afilados. Su fuerza bruta lo hace ideal para embestidas devastadoras.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Espectro.jpg" alt="Spectre">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Spectre</h3>
+                        <p>Una versión invisible del Pinky, casi imperceptible a simple vista. Ataca con ferocidad y su camuflaje lo hace un enemigo traicionero.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/Revenant.jpg" alt="Revenant">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Revenant</h3>
+                        <p>Un esqueleto demoníaco con mochilas propulsoras y lanzamisiles. Dispara proyectiles teledirigidos mientras sobrevuela el campo de batalla.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/CiberMancubus.jpg" alt="Cyber Mancubus">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Cyber Mancubus</h3>
+                        <p>Una versión mejorada del Mancubus con tecnología infernal. Además de lanzar bolas de fuego, dispara ácidos corrosivos que derriten todo a su paso.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/CaballeroInf.jpg" alt="Hell Knight">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Hell Knight</h3>
+                        <p>Primo del Baron of Hell, pero más ágil. Este demonio usa su fuerza sobrehumana para aplastar a sus enemigos con ataques cuerpo a cuerpo.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/CaballeroTerror.jpg" alt="Dread Knight">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Dread Knight</h3>
+                        <p>Una versión mejorada del Hell Knight, con espadas de energía implantadas en sus brazos. Este demonio combina fuerza bruta con ataques ágiles y letales.</p>
+                    </div>
+                </div>
+                <div class="enemy-item">
+                    <div class="enemy-image">
+                        <img src="../images/CazadorInfernal.jpg" alt="Doom Hunter">
+                        <div class="enemy-bg"></div>
+                    </div>
+                    <div class="enemy-info">
+                        <h3>Doom Hunter</h3>
+                        <p>Un demonio mecanizado diseñado específicamente para cazar al Doom Slayer. Equipado con un jetpack, cañones de plasma y misiles, es una máquina de matar implacable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Pié de página -->
+    <footer class="footer">
+        <p>&copy; 2025 - Proyecto de Lenguajes de Marcas</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

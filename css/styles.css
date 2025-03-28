@@ -1,0 +1,1756 @@
+/*---------------------------------------------------------------------------------------------*/
+/*Usado por todos los archivos html (Wolf3D, formulario, Doom, ...) */
+/*---------------------------------------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Anton', sans-serif; 
+    background-color: #1a1a1a; 
+    color: #fff; 
+    line-height: 1.6;
+}
+
+/* Encabezado */
+.header {
+    background: radial-gradient(circle, #111, #000);
+    background-size: 200% 200%;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    animation: portalSpin 10s infinite linear;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3), transparent);
+    opacity: 0.5;
+    animation: portalGlow 3s infinite alternate;
+}
+@keyframes portalSpin {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 360% 360%; }
+}
+
+@keyframes portalGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 0.8; }
+}
+
+/* Cursor encabezado */
+.header, .header * {
+    cursor: default !important;
+}
+.logo {
+    max-width: 200px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px #ff4500);
+    animation: fireGlow 2s infinite alternate;
+}
+.logo::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.5), transparent);
+    opacity: 0.7;
+    animation: firePulse 1.5s infinite;
+}
+
+/*Tipos de letra*/
+@font-face {
+    font-family: 'MetalMania';
+    src: url('../fonts/Metal_Mania/MetalMania-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/Cinzel/Cinzel-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cormorant';
+    src: url(../fonts/Cormorant_Unicase/CormorantUnicase-Bold.ttf);
+    font-weight: normal;
+    font-size: normal;
+}
+
+/*Animación encabezado*/
+@keyframes fireGlow {
+    0% { filter: drop-shadow(0 0 10px #ff4500); }
+    100% { filter: drop-shadow(0 0 20px #ff0000); }
+}
+
+@keyframes firePulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.nav a:visited {
+    color: palevioletred;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    position: relative; 
+    transition: color 0.3s ease; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+.nav a span {
+    position: relative;
+    z-index: 1; 
+}
+
+/* Efecto de subrayado animado */
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; 
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #ff0000, #ff4500); 
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+/* Efecto hover */
+.nav a:hover::after, .nav a.active::after {
+    width: 100%;
+}
+
+/* Efecto de brillo y pulso */
+.nav a:hover, .nav a.active {
+    color: #ff0000; 
+    text-shadow: 
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 30px #ff0000;
+    animation: pulseGlow 0.5s ease-in-out infinite alternate;
+}
+
+/* Secciones principales */
+.introduction, .game-info, .play-area {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px; 
+    background-color: #333; 
+    border-radius: 5px;
+}
+
+/* Animación de pulso */
+@keyframes pulseGlow {
+    from {
+        text-shadow: 
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 30px #ff0000;
+    }
+    to {
+        text-shadow: 
+            0 0 15px #ff0000,
+            0 0 30px #ff0000,
+            0 0 50px #ff0000;
+    }
+}
+.game-links a:visited{
+    background-color: #333; 
+}
+
+/* Títulos */
+h1, h2 {
+    color: #ff0000; 
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Elementos flotantes */
+.runes {
+    position: fixed;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.runes.left {
+    left: 30px;
+}
+
+.runes.right {
+    right: 30px;
+}
+
+.rune {
+    width: 80px; 
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px #ff0000);
+    animation: float 10s infinite linear;
+}
+
+/* Brillo pulsante */
+@keyframes runeGlow {
+    0% { filter: drop-shadow(0 0 15px #ff0000); }
+    100% { filter: drop-shadow(0 0 30px #ff4500); }
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-100vh); }
+}
+
+
+.runes .rune:nth-child(2) { animation-delay: 1s; }
+.runes .rune:nth-child(3) { animation-delay: 2s; }
+
+/* Galería de elentos */
+.enemy-gallery {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: linear-gradient(45deg, #222, #111);
+    border: 3px solid #ff0000;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título de la galería */
+.enemy-gallery h2 {
+    color: #ff0000;
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    margin-bottom: 30px;
+}
+
+/* Cuadrícula */
+.enemy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px; 
+    width: 100%;
+}
+
+/* Cada elemento */
+.enemy-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #111;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px #ff0000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+.enemy-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff0000;
+}
+
+/* Imagen del elemento */
+.enemy-image img {
+    width: 100%;
+    height: auto; 
+    max-height: 300px; 
+    object-fit: contain; 
+    filter: grayscale(80%) brightness(50%); 
+    transition: filter 0.5s ease;
+}
+
+/* Contenedor de la imagen */
+.enemy-image {
+    position: relative;
+    width: 100%;
+    max-width: 300px; 
+    margin-bottom: 15px;
+}
+
+/* Fondo */
+.enemy-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3), transparent);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+/* Overlay con descripción */
+.enemy-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 10px;
+    text-align: center;
+}
+
+.enemy-overlay h3 {
+    color: #ff0000;
+    font-family: 'Metal Mania', sans-serif;
+    font-size: 20px;
+    text-shadow: 0 0 5px #ff0000;
+    margin-bottom: 5px;
+}
+
+.enemy-overlay p {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+}
+
+/* Efecto al pasar el ratón */
+.enemy-item:hover .enemy-image img {
+    filter: grayscale(0%) brightness(100%); 
+}
+
+.enemy-item:hover .enemy-bg {
+    opacity: 1; 
+    animation: pulseGlow 1s infinite alternate;
+}
+
+/* Efecto al pasar el ratón */
+.enemy-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff0000;
+}
+
+.enemy-item:hover .enemy-overlay {
+    opacity: 1; 
+}
+
+/* Información del enemigo */
+.enemy-info {
+    text-align: center;
+    color: #fff;
+}
+
+.enemy-info h3 {
+    color: #ff6200;
+    font-family: 'MetalMania', sans-serif;
+    font-size: 30px;
+    text-shadow: 0 0 5px #ff0000;
+    margin-bottom: 10px;
+}
+
+.enemy-info p {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*DOOM*/
+/*---------------------------------------------------------------------------------------------*/
+
+/* Marco con efecto neón */
+.neon-frame {
+    position: relative;
+    padding: 10px; 
+    background-color: #000; 
+    border: 3px solid #ff0000; 
+    border-radius: 10px; 
+    box-shadow:
+        0 0 10px #ff0000, 
+        0 0 20px #ff0000, 
+        0 0 40px #ff0000; 
+    animation: neon-glow 1.5s ease-in-out infinite alternate; 
+}
+
+/* Animación del neón */
+@keyframes neon-glow {
+    from {
+        box-shadow:
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 40px #ff0000;
+    }
+    to {
+        box-shadow:
+            0 0 20px #ff0000,
+            0 0 30px #ff0000,
+            0 0 60px #ff0000;
+    }
+}
+
+/* Estilos del iframe */
+.game-iframe {
+    width: 100%;
+    height: 400px; 
+    background-color: #000; 
+    border: none;
+}
+
+/* Contenedor de botones */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Botones con efecto neón */
+.neon-button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    font-size: 25px;
+    font-family: 'MetalMania';
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px #ff0000;
+}
+
+.neon-button:hover, .neon-button.active {
+    background-color: #ff0000;
+    color: #000;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+/* Historias */
+.game-stories {
+    margin-top: 20px;
+}
+
+/*Cuadros de historia*/
+.story {
+    padding: 15px;
+    background-color: #222;
+    border-radius: 5px;
+    animation: neonPulse 1.5s infinite alternate;
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff4500;
+    transition: transform 0.1s ease-in-out;
+}
+
+.story:hover {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes neonPulse {
+    from {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff4500;
+    }
+    to {
+        box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 50px #ff4500;
+    }
+}
+
+.story h3 {
+    color: #ff0000;
+    font-family: 'MetalMania';
+    font-size: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Títulos Doom*/
+.BodyDoom {
+    font-family: 'MetalMania';
+    font-size: 40px;
+}
+
+/*Subtítulos Doom*/
+.SubDoom p {
+    font-family: 'Cinzel';
+    font-size: 22px;
+}
+
+/* Cursor personalizado Doom */
+.doom-page {
+    cursor: url('../images/cursor_doom.png') 0 0, auto;
+}
+
+/* Cursor Doom clic */
+.doom-page *:active {
+    cursor: url('../images/clickerDoom.png') 0 0, auto !important;
+}
+
+/*Cursor Doom Pointer */
+.doom-page .neon-button:hover {
+    cursor: url('../images/PointerDoom.png') 0 0, pointer;
+}
+
+.doom-page .nav a:hover {
+    cursor: url('../images/PointerDoom.png') 0 0, pointer;
+}
+
+/* Doom Slayer izquierdo */
+.doom-slayer {
+    position:fixed;
+    top: 65%;
+    left: 0;
+    transform: translateY(-50%); 
+    z-index: 0; 
+}
+
+.doom-slayer img {
+    max-height: 60vh; 
+    width: auto;
+    opacity: 0.8; 
+    filter: drop-shadow(0 0 10px #ff0000); 
+}
+
+/* Cyber Demon derecho */
+.cyber-demon {
+    position: fixed;
+    top: 65%;
+    right: 0;
+    transform: translateY(-50%); 
+    z-index: 0; 
+}
+
+.cyber-demon img {
+    max-height: 60vh; 
+    width: auto;
+    opacity: 0.8; 
+    filter: drop-shadow(0 0 10px #ff0000); 
+}
+
+/* Efecto al pasar el ratón */
+.doom-slayer:hover, .cyber-demon:hover {
+    animation: pulseGlow 0.5s infinite alternate;
+    filter: drop-shadow(0 0 20px #ff0000);
+}
+
+/*Reproductor Doom*/
+.music-player {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0;
+    background: none; 
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    position: relative;
+}
+
+.player-background {
+    background: url('../images/CastleDoom.jpeg') no-repeat center center;
+    background-size: cover; 
+    border: 3px solid #ff0000;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow:
+        0 0 20px #ff0000,
+        0 0 40px #ff0000,
+        inset 0 0 10px #ff0000;
+    position: relative;
+    overflow: hidden;
+    animation: pulseGlow 2s infinite alternate;
+}
+
+/* Efecto fondo */
+.player-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.3), transparent);
+    opacity: 0.5;
+    animation: firePulse 3s infinite;
+}
+
+/* Ícono decorativo del Doom Slayer */
+.player-decor {
+    position: absolute;
+    top: 10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #111;
+    border: 2px solid #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ff0000;
+    z-index: 1;
+}
+
+.slayer-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px #ff0000);
+}
+
+/* Título del reproductor */
+.music-player h3 {
+    color: #ff6a00;
+    font-size: 35px;
+    margin: 60px 0 15px; 
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    font-family: 'MetalMania', 'Anton', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Controles del reproductor */
+.player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.control-button {
+    background: #111;
+    color: #fff;
+    border: 3px solid #ff0000;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px #ff0000;
+    position: relative;
+    overflow: hidden;
+}
+
+.control-button:hover {
+    background: #ff0000;
+    color: #000;
+    box-shadow: 0 0 20px #ff0000;
+    text-shadow: 0 0 5px #000;
+}
+
+.control-button:active {
+    transform: scale(0.95);
+}
+
+/* Efecto en los botones */
+.control-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 69, 0, 0.5), transparent);
+    transition: 0.5s;
+}
+
+.control-button:hover::before {
+    left: 100%;
+}
+
+/* Barra de progreso */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#current-time, #duration {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff0000;
+    background: #111;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    box-shadow: 0 0 5px #ff0000;
+}
+
+#progress-bar {
+    width: 100%;
+    max-width: 400px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    background: #555;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ff0000;
+    border: 2px solid #000;
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ff0000;
+    border: 2px solid #000;
+}
+
+/* Color de la barra de progreso llenada */
+#progress-bar::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #ff0000 0%, #ff0000 var(--value), #555 var(--value), #555 100%);
+}
+
+#progress-bar::-moz-range-progress {
+    background: #ff0000;
+}
+
+/* Animaciones */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px #ff0000; }
+    100% { box-shadow: 0 0 40px #ff0000; }
+}
+
+@keyframes firePulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Galería de armas en Doom */
+.weapon-gallery {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: linear-gradient(45deg, #222, #111);
+    border: 3px solid #ff0000;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Título de la galería */
+.weapon-gallery h2 {
+    color: #ff0000;
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    margin-bottom: 30px;
+}
+
+/* Estilo de la lista de definición */
+.weapon-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px;
+}
+
+/* Contenedor de cada arma (dt y dd juntos) */
+.weapon-list dt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #111;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px #ff0000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre el dt */
+.weapon-list dt:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff0000;
+}
+
+/* Imagen del arma */
+.weapon-list dt img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    filter: grayscale(80%) brightness(50%);
+    transition: filter 0.5s ease;
+}
+
+/* Efecto al pasar el ratón sobre la imagen */
+.weapon-list dt:hover img {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Nombre del arma */
+.weapon-list dt span {
+    color: #ff6200;
+    font-family: 'MetalMania', sans-serif;
+    font-size: 24px;
+    text-shadow: 0 0 5px #ff0000;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Descripción del arma */
+.weapon-list dd {
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 15px;
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 4px solid #ff0000;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre la descripción */
+.weapon-list dd:hover {
+    box-shadow: 0 0 20px #ff0000;
+    transform: translateX(10px);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .weapon-list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    }
+
+    .weapon-list dt img {
+        max-width: 250px;
+    }
+}
+/*---------------------------------------------------------------------------------------------*/
+/*WOLF3D*/
+/*---------------------------------------------------------------------------------------------*/
+
+/*Fuentes*/
+@font-face {
+    font-family: "Jersey 20";
+    src: url('../fonts/Jersey_20/Jersey20-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Indice*/
+#indiceW3D {
+    margin: 10px;
+    padding: 15px;
+    padding-left: 50px;
+    border: 2px solid white;
+
+    position: inherit;
+    font-family: "Jersey 20";
+    font-size: 21pt;
+    
+    background: #1a1a1a;
+    border-radius: 3px;
+
+}
+
+/*Enlaces*/
+#indiceW3D a {
+    text-decoration: none;
+    color: WHITE;
+}
+#indiceW3D a:hover {
+    padding: 10px;
+}
+#indiceW3D a:visited {
+    color:gray;
+}
+
+/*Cabecera de los articulos*/
+#W3D h2 {
+    font-size: 20pt;
+    text-align: center;
+    color: white;
+    background: #1a1a1a;
+    border: 3px solid #1a1a1a;
+    border-radius: 10px;
+}
+
+/*Articulos*/
+#W3D article {
+    position: inherit;
+    margin: 15px;
+    padding: 20px;
+    font-family: "Jersey 20";
+    font-size: 18pt;
+    
+    background: #1a1a1abb;
+
+    border: 3px groove rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: -5px 8px #1a1a1a;
+}
+
+/*Enlace del articulo 3*/
+#a3 a {
+    color: RED;
+}
+#a3 a:hover {
+    color: GREEN;
+}
+
+/*El gif de la pagina*/
+#raycastingGif{
+    padding: inherit;
+    margin:auto;
+    display: block;
+
+    border: 5px groove #adadadbb;
+    border-radius: 5px;
+    box-shadow: -5px 8px #1a1a1a;
+}
+
+/*Iluminacion*/
+#luz::after {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    background:
+        radial-gradient(900px at left  0px top 0px,#ff53bb 100%,#0000),
+        radial-gradient(900px at right 900px top 900px,#00f8d3 100%,#0000);
+        filter: blur(300px);
+        opacity: .50;
+    z-index: -1;
+}
+
+/*Mensaje*/
+#juega {
+    position: inherit;
+    margin: 25px;
+    padding: 25px;
+    font-family: "Jersey 20";
+    font-size: 26pt;
+    color: WHITE;
+    background: #1a1a1abb;
+    text-align: center;
+}
+
+/*iFrame juego*/
+#juegoW3D {
+    border: none;
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
+    display: block;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------------------------------*/
+/*alice*/
+/*---------------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'fuente-alice';
+    src: url('../fonts/Alice_in_Wonderland_3.ttf') format('woff2'),
+         url('../fonts/Alice_in_Wonderland_3.ttf') format('woff'),
+         url('../fonts/Alice_in_Wonderland_3.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#main-Alice {
+    font-family: 'fuente-alice', sans-seriff;
+    font-size: 25px;
+}
+
+#body-alice {
+    cursor: url('../images/espada_vorpal.png'), auto;
+    background-image: url('../images/alice-fondo.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;     
+}
+
+.alice-game-info, .alice-play-area {
+    font-family: 'fuente-alice', sans-seriff;
+    font-size: 25px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px; 
+    background-color: #333; 
+    border-radius: 5px;
+}
+
+.imagen-Alice {
+    float: left;
+    margin-right: 15px;
+    width: 200px;
+    height: auto;
+}
+
+.texto-Alice {
+    flex: 1;
+    color: #fff;
+}
+
+.contenido-Alice {
+    display: flex; 
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.tabla-Alice {
+    margin: 20px;
+}
+
+.tabla-Alice a{
+    text-decoration: none;
+    color: white;
+}
+
+.tabla-Alice a:visited{
+    text-decoration: none;
+    color: palevioletred;
+}
+
+.tabla-Alice a:hover{
+    text-decoration: none;
+    color: red;
+}
+
+.alice-h3 {
+    font-family: 'fuente-alice';
+    font-size: 30px;
+    color: burlywood;
+}
+
+.alice-enemy-gallery {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: linear-gradient(45deg, #222, #111);
+    border: 3px solid #ff0000;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alice-enemy-gallery h2 {
+    color: #ff0000;
+    font-family: 'fuente-alice', serif;
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    margin-bottom: 30px;
+}
+
+.alice-enemy-info {
+    font-family: 'fuente-alice';
+    text-align: center;
+    color: #fff;
+}
+
+.alice-enemy-info h3 {
+    font-family: 'fuente-alice';
+    color: burlywood;
+    font-size: 30px;
+    text-shadow: 0 0 5px #ff0000;
+    margin-bottom: 10px;
+}
+
+.alice-enemy-info p {
+    font-family: 'fuente-alice';
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+
+/*---------------------------------------------------------------------------------------------*/
+/*index*/
+/*---------------------------------------------------------------------------------------------*/
+.index-page {
+    background: linear-gradient(45deg, #1a1a1a, #2a0000);
+    background-size: 400% 400%;
+    color: #fff;
+    line-height: 1.6;
+    position: relative;
+    animation: infernalSky 30s infinite;
+}
+
+/* Animación */
+@keyframes infernalSky {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.index-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.5), transparent),
+                radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3), transparent);
+    opacity: 0.5;
+    z-index: -1;
+    animation: cloudMove 60s infinite linear;
+}
+
+@keyframes cloudMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Encabezado similar a las otras páginas */
+.index-page .header {
+    background: radial-gradient(circle, #111, #000);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    animation: portalSpin 10s infinite linear;
+}
+
+.index-page .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3), transparent);
+    opacity: 0.5;
+    animation: portalGlow 3s infinite alternate;
+}
+
+.index-page .logo {
+    max-width: 200px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px #ff4500);
+    animation: fireGlow 2s infinite alternate;
+}
+
+.index-page .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.index-page .nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.index-page .nav a:hover, .index-page .nav a.active {
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    animation: pulseGlow 0.5s ease-in-out infinite alternate;
+}
+
+/* Secciones principales */
+.index-page .introduction, .index-page .game-categories, .index-page .featured-games, .index-page .classic-games {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: linear-gradient(45deg, #222, #111); 
+    border: 3px solid #ff0000; 
+    border-radius: 5px;
+    box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff0000; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.introduction p {
+    font-family: 'Cormorant', 'arial';
+    font-size: larger;
+}
+
+.index-page h1, .index-page h2 {
+    color: #ff0000;
+    font-family: 'Cinzel', serif;
+}
+
+/* Tabla de categorías con animación */
+.category-table {
+    width: 100%;
+    max-width: 100%; 
+    border-collapse: collapse;
+    margin: 20px 0; 
+    background: linear-gradient(45deg, #222, #111);
+    color: #fff;
+    animation: tableFadeIn 1s ease-in-out;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+.category-table th, .category-table td {
+    padding: 15px; 
+    text-align: left;
+    border: 2px solid #ff0000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-table th {
+    background: linear-gradient(45deg, #000, #333); 
+    font-family: 'Cormorant', sans-serif; 
+    font-size: 25px;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+    color: #ff0000; 
+}
+
+.category-table td {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Efecto al pasar el ratón */
+.category-table tr {
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.category-table tr:hover {
+    background: linear-gradient(45deg, #333, #444); 
+    transform: scale(1.02); 
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000; 
+}
+
+/* Animaciones */
+@keyframes tableFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes tableGlow {
+    from {
+        box-shadow: 0 0 10px #ff0000;
+    }
+    to {
+        box-shadow: 0 0 20px #ff0000;
+    }
+}
+
+/* Botones neón */
+.index-page .neon-button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px #ff0000;
+}
+
+.index-page .neon-button:hover {
+    background-color: #ff0000;
+    color: #000;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+/* Animaciones generales */
+@keyframes portalSpin {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 360% 360%; }
+}
+
+@keyframes portalGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes fireGlow {
+    0% { filter: drop-shadow(0 0 10px #ff4500); }
+    100% { filter: drop-shadow(0 0 20px #ff0000); }
+}
+
+@keyframes pulseGlow {
+    from {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+    to {
+        text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 50px #ff0000;
+    }
+}
+
+/* Pie de página */
+.index-page .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.index-page .featured-games h2 {
+    color: #ff0000;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    animation: fireTitle 2s infinite alternate;
+}
+
+@keyframes fireTitle {
+    0% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff4500;
+        color: #ff0000;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff4500;
+        color: #ff4500;
+    }
+}
+
+/* Contenedor de paneles horizontales */
+.game-panels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 30px auto;
+    overflow: hidden; 
+}
+
+/* Estilo de cada panel */
+.panel {
+    flex: 1;
+    height: 400px;
+    transition: flex 0.5s ease, opacity 0.5s ease, filter 0.5s ease; 
+}
+
+/* Enlace del panel */
+.panel a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Imagen dentro del panel */
+.panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+}
+
+/* Efecto al pasar el ratón */
+.panel:hover {
+    flex: 2; 
+}
+.panel:hover img {
+    transform: scale(1.1); 
+}
+
+/* Las imágenes no seleccionadas se comprimen */
+.game-panels:hover .panel {
+    flex: 0.5;
+    opacity: 0.7;
+    filter: blur(3px) grayscale(80%) sepia(50%) brightness(50%); 
+}
+
+.game-panels:hover .panel:hover {
+    flex: 2;
+    opacity: 1; 
+    filter: none; 
+}
+
+.index-page .header .logo:active {
+    transform: scale(0.95); 
+}
+
+/* Sección de reseñas */
+.reviews-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: linear-gradient(45deg, #222, #111);
+    border: 3px solid #ff0000;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título de la sección */
+.reviews-section h2 {
+    color: #ff0000;
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    text-align: center;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    margin-bottom: 20px;
+}
+
+/* Cada reseña */
+.review-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #111;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff0000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón  */
+.review-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px #ff0000, 0 0 50px #ff0000;
+}
+
+/* Invierte la disposición */
+.review-item.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Contenedor de la imagen */
+.review-image {
+    flex: 1;
+    margin: 0 20px;
+}
+
+/* Imagen de la portada */
+.review-image img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+/* Contenedor del texto */
+.review-text {
+    flex: 2;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+}
+
+/* Título de la reseña */
+.review-text h3 {
+    color: #ff6a00;
+    font-family: 'Cormorant', sans-serif;
+    font-size: 45px;
+    text-shadow: 0 0 5px #ff0000;
+    margin-bottom: 10px;
+}
+
+/* Texto de la reseña */
+.review-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*Formulario*/
+/*-------------------------------------------------------------------------------------------------------*/
+
+.formularioMain{
+    margin-top: 7%;
+    margin-left: 7%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: fantasy;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.formularioMain form {
+    padding: 5%;
+    max-width: 900px;
+    background: linear-gradient(45deg, #222, #111); 
+    background-color: #8b3131;
+    border: 3px solid #ff0000;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff0000; 
+    box-sizing: border-box;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    margin-bottom: 10%;
+    position: relative;
+    overflow: hidden;
+} 
+
+/* Fondo */
+.formularioMain form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3), transparent);
+    opacity: 0.5;
+    z-index: -1;
+    animation: firePulse 3s infinite;
+}
+
+/* Separar las secciones del formulario */
+.formularioMain section {
+    margin: 2% 0;
+    padding: 10px;
+    border-bottom: 1px solid #ff0000; 
+}
+
+/* etiquetas */
+.formularioMain label {
+    color: #ff0000;
+    font-family: 'MetalMania', sans-serif;
+    font-size: 25px;
+    text-shadow: 0 0 5px #ff0000;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* campos de entrada */
+.formularioMain input[type="text"],
+.formularioMain input[type="number"],
+.formularioMain input[type="month"],
+.formularioMain select,
+.formularioMain textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    background: #111;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ff0000;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+.formularioMain input[type="text"]:focus,
+.formularioMain input[type="number"]:focus,
+.formularioMain input[type="month"]:focus,
+.formularioMain select:focus,
+.formularioMain textarea:focus {
+    box-shadow: 0 0 15px #ff0000;
+    outline: none;
+}
+
+/* radio buttons y checkboxes */
+.formularioMain input[type="radio"],
+.formularioMain input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #ff0000; 
+}
+
+/* fieldset */
+.formularioMain fieldset {
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.formularioMain fieldset legend {
+    color: #ff0000;
+    font-family: 'MetalMania', sans-serif;
+    font-size: 22px;
+    text-shadow: 0 0 5px #ff0000;
+    padding: 0 10px;
+}
+
+.formularioMain fieldset div {
+    margin: 10px 0;
+}
+
+/* textarea */
+.formularioMain textarea {
+    resize: none; 
+    width: 100%;
+    max-width: 600px;
+    height: 150px;
+}
+
+/* input file */
+.formularioMain input[type="file"] {
+    color: #fff;
+    font-family: 'Cinzel', serif;
+}
+
+.formularioMain input[type="file"]::-webkit-file-upload-button {
+    background: #111;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0 0 5px #ff0000;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.formularioMain input[type="file"]::-webkit-file-upload-button:hover {
+    box-shadow: 0 0 15px #ff0000;
+}
+
+/* botones de enviar y borrar */
+.formularioMain #botones {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.formularioMain input[type="submit"],
+.formularioMain input[type="reset"] {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Metal Mania', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px #ff0000;
+    margin: 10px;
+}
+
+.formularioMain input[type="submit"]:hover,
+.formularioMain input[type="reset"]:hover {
+    background-color: #ff0000;
+    color: #000;
+    box-shadow: 0 0 15px #ff0000;
+    text-shadow: 0 0 5px #000;
+}
+
+.formularioMain input[type="submit"]:active,
+.formularioMain input[type="reset"]:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .formularioMain {
+        margin: 10% 5%;
+        padding: 10px;
+    }
+
+    .formularioMain form {
+        padding: 20px;
+    }
+
+    .formularioMain input[type="text"],
+    .formularioMain input[type="number"],
+    .formularioMain input[type="month"],
+    .formularioMain select,
+    .formularioMain textarea {
+        max-width: 100%;
+    }
+}
+
+.index-page nav a:visited {
+    color: palevioletred;
+}
+.formulario-page {
+    background: linear-gradient(45deg, #1a1a1a, #2a0000); 
+    background-size: 400% 400%;
+    animation: infernalSky 30s infinite; 
+}
+@keyframes infernalSky {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+.formulario-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.5), transparent),
+                radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3), transparent);
+    opacity: 0.5;
+    z-index: -1;
+    animation: cloudMove 60s infinite linear;
+}
+
+@keyframes cloudMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

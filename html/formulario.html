@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Metadatos del autor-->
+    <meta name="author" content="Lucía, Javier, Sergio">
+    <meta name="description" contet="Una encuesta sobre videojuegos">
+    <meta name="keywords" content="Encuesta, Videojuegos">
+    <!--Metadatos del juego de caracteres y vista-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!------------------------------------------------------->
+    <title>Formulario</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/formularioLogo.png">
+</head>
+<body class="formulario-page">
+    <!--Header-->
+    <header class="header">
+        <img src="../images/formularioLogo.png" alt="Logo del formulario" class="logo">
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Doom.html">Doom</a></li>
+                <li><a href="Wolf3D.html">Wolfenstein3D</a></li>
+                <li><a href="Alice.html">Alice Madness</a></li>
+                <li><a href="formulario.html" class=".active">Formulario</a></li>
+              </ul>
+        </nav>
+    </header>
+    <main class="formularioMain">
+        <form action="index.html" method="POST">
+        
+            <section id="cajaDeTexto">
+                <label>¿Cuál es tu juego favorito?</label>
+                <input type="text" maxlength="50" size="50"/>
+            </section>
+
+
+            <section id="radio">
+                <fieldset>
+                <legend>¿Con qué frecuencia juegas?</legend>
+                    <div>
+                        <input type="radio"/>
+                        <label>A diario</label>
+                    </div>
+                    <div>
+                        <input type="radio"/>
+                        <label for="dewey">Varias veces a la semana</label>
+                    </div>
+                    <div>
+                        <input type="radio"/>
+                        <label for="louie">Varias veces al mes</label>
+                    </div>
+                    <div>
+                        <input type="radio"/>
+                        <label for="louie">Varias veces al año</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                <legend>¿En qué prefieres jugar?</legend>
+                    <div>
+                        <input type="radio" id="huey" name="drone" value="huey"/>
+                        <label for="huey">Ordenador</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="dewey" name="drone" value="dewey" />
+                        <label for="dewey">Consola</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="louie" name="drone" value="louie" />
+                        <label for="louie">Ambos</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="louie" name="drone" value="louie" />
+                        <label for="louie">Otro</label>
+                    </div>
+                </fieldset>
+            </section>
+
+            <section id="meses">
+                <label>¿A partir de qué año empezaste a jugar? (mes aproximado)</label>
+                <input type="month" placeholder="YYYY/MM"/>
+            </section>
+
+            <section id="numeros">
+                <label>¿Cuánto te gastas al año en juegos?</label>
+                <input type="number" max="3000"/>
+            </section>
+
+            <section id="Desplegable">
+                <label>¿Cual es tu plataforma de videojuegos de preferencia?</label>
+                <select name="opciones">
+                    <option>Steam</option>
+                    <option>G2A</option>
+                    <option>Epic Games</option>
+                    <option>Social club</option>
+                    <option>Prime gaming</option>
+                </select>
+            </section>
+    
+            <section id="checkboxes">
+                <label>¿Cuáles son tus estilos de videojuegos favoritos?</label></br>
+                <label>FPS</label>
+                <input type="checkbox" name="FPS"></br>
+                <label>Plataformas</label>
+                <input type="checkbox" name="Plataforma"></br>
+                <label>Aventuras de acción</label>
+                <input type="checkbox" name="Aventuras de accin"></br>
+                <label>Rol RPG</label>
+                <input type="checkbox" name="RPG"></br>
+                <label>Estrategias de tiempo (RTS)</label>
+                <input type="checkbox" name="RTS"></br>
+            </section>
+    
+            <section id="areaDeTexto">
+                <label>Que es lo que mas aprecias de los videojuegos</label></br>
+                <textarea style="resize:none" id="areaTexto" name="areaTexto" rows="20" cols="80" resize:none ></textarea></br>
+            </section>
+    
+    
+            <section id="archivos">
+                <label>Puedes subir capturas de pantallas de tus videojuegos aqui</label></br>
+                <input type="file" name="captura"/></br>
+            </section>
+            <section id="botones">
+                <input type="submit"/></br>
+                <input type="reset"/></br>
+            </section>
+        </form>
+    </main>
+    <!-- Pié de página -->
+    <footer class="footer">
+        <p>&copy; 2025 - Proyecto de Lenguajes de Marcas</p>
+    </footer>
+</body>
+</html>
